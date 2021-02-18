@@ -11,7 +11,7 @@ private:
 	std::condition_variable cv;
 
 protected:
-	void* result;
+	void* result = nullptr;
 
 public:
 	void* get_result() {

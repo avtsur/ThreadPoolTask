@@ -13,6 +13,8 @@ const int threads_param_index = 1;
 const int lower_limit_param_index = 2;
 const int higher_limit_param_index = 3;
 
+const int rangeSingleJob = 300; //one calc job range of integers
+
 class IsPrimeCalcRangeJob : public IJob {
 	int low;
 	int high;
@@ -54,24 +56,24 @@ public:
 int CalcNumOfPrimeInRange(int numOfThreads, int low, int high)
 {
 	ThreadPool threadPool(numOfThreads);
-	vector<shared_ptr<IJob>> primeJobs;
+	int vectorSize = ((high - low + 1) / rangeSingleJob) + ((high - low + 1) % rangeSingleJob != 0 ? 1 : 0);
+	vector<shared_ptr<IJob>> primeJobs(vectorSize);
 	int num_of_primes = 0;
 	auto start = std::chrono::high_resolution_clock::now();
 
 	int i = low;
-	const int range = 300; //one calc job range of integers
-	for (; i <= high; i += range)
+
+	for (; i <= high; i += rangeSingleJob)
 	{
-		int current_range_high = i + range - 1;
-		std::shared_ptr<IJob> job_ptr =
-			std::make_shared<IsPrimeCalcRangeJob>(i, current_range_high > high ? high : current_range_high);
-		primeJobs.push_back(job_ptr);
+		int current_range_high = std::min(i + rangeSingleJob - 1, high);
+		auto job_ptr = std::make_shared<IsPrimeCalcRangeJob>(i, current_range_high);
 		threadPool.add_job(job_ptr.get());
+		primeJobs[(i - low) / rangeSingleJob] = job_ptr;
 	}
 	if (i < high) {
-		std::shared_ptr<IJob> job_ptr = std::make_shared<IsPrimeCalcRangeJob>(i, high);
-		primeJobs.push_back(job_ptr);
+		auto job_ptr = std::make_shared<IsPrimeCalcRangeJob>(i, high);
 		threadPool.add_job(job_ptr.get());
+		primeJobs[(i - low) / rangeSingleJob] = job_ptr;
 	}
 
 	//get results
@@ -93,7 +95,7 @@ int main(int argc, char* argv[])
 {
 	int num_of_threads = thread::hardware_concurrency();
 	int range_low = 1;
-	int  range_high = 10000;
+	int range_high = 10000;
 	if (argc == expected_params) {
 		num_of_threads = atoi(argv[threads_param_index]);
 		range_low = atoi(argv[lower_limit_param_index]);

@@ -26,7 +26,7 @@ public:
 		cv.notify_all();
 	}
 
-	T dequeue()
+	T& dequeue()
 	{
 		std::unique_lock<std::mutex> locker(m);
 		while (items.empty() && !adding_completed) {
