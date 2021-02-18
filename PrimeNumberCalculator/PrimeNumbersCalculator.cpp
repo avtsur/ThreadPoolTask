@@ -2,9 +2,11 @@
 //
 
 #include <iostream>
+
 #include "BlockingQueue.h"
 #include "IJob.h"
 #include "ThreadPool.h"
+#include "IsPrimeCalcRangeJob.h"
 
 using namespace std;
 
@@ -15,43 +17,6 @@ const int higher_limit_param_index = 3;
 
 const int rangeSingleJob = 300; //one calc job range of integers
 
-class IsPrimeCalcRangeJob : public IJob {
-	int low;
-	int high;
-	int numOfPrimes = 0;
-
-public:
-	IsPrimeCalcRangeJob(int low, int high) : low(low), high(high) {
-	}
-
-	virtual void calculate() {
-		for (int i = low; i <= high; i++)
-		{
-			if (is_prime(i)) {
-				numOfPrimes++;
-			}
-		}
-		result = &numOfPrimes;
-		set_completed();
-	}
-
-	bool is_prime(int number) {
-		bool is_prime = true;
-		if (number == 0 || number == 1) {
-			is_prime = false;
-		}
-		else {
-			for (int i = 2; i * i <= number; i++)
-			{
-				if (number % i == 0) {
-					is_prime = false;
-					break;
-				}
-			}
-		}
-		return is_prime;
-	}
-};
 
 int CalcNumOfPrimeInRange(int numOfThreads, int low, int high)
 {

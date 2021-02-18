@@ -146,12 +146,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IsPrimeCalcRangeJob.cpp" />
     <ClCompile Include="PrimeNumbersCalculator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreadPool\ThreadPool.vcxproj">
       <Project>{3d559fe1-b932-48df-b3ed-c4d5bc072fb2}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IsPrimeCalcRangeJob.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

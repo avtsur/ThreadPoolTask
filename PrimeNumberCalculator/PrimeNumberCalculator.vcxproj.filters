@@ -18,5 +18,13 @@
     <ClCompile Include="PrimeNumbersCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IsPrimeCalcRangeJob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IsPrimeCalcRangeJob.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
