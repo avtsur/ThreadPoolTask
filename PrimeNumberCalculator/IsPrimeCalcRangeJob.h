@@ -10,6 +10,13 @@ private:
 	int low;
 	int high;
 	int numOfPrimes = 0;
+	
+	/// <summary>
+	/// Check if given number is prime
+	/// </summary>
+	/// <param name="number">integer</param>
+	/// <returns>true if "number" is prime</returns>
+	bool is_prime(int number);
 
 public:
 	IsPrimeCalcRangeJob(int low, int high) : low(low), high(high) {
@@ -20,10 +27,5 @@ public:
 	/// </summary>
 	virtual void calculate();
 
-	/// <summary>
-	/// Check if given number is prime
-	/// </summary>
-	/// <param name="number">integer</param>
-	/// <returns>true if "number" is prime</returns>
-	bool is_prime(int number);
+
 };
