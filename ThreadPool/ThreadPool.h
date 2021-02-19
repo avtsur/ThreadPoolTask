@@ -1,4 +1,5 @@
 #pragma once
+#define DllExport   __declspec( dllexport )
 
 #include "BlockingQueue.h"
 #include "IJob.h"
@@ -7,7 +8,7 @@ using namespace std;
 /// <summary>
 /// Thread pool fo executing calculation jobs.
 /// </summary>
-class ThreadPool
+class DllExport ThreadPool
 {
 private:
 	bool jobsCompleted = false;

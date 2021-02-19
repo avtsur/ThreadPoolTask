@@ -1,5 +1,5 @@
 #pragma once
-#include "IJob.h"
+#include "..\ThreadPool\IJob.h"
 
 /// <summary>
 /// This job is used to calc the number of primes in a range of integers
