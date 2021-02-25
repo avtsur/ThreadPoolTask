@@ -37,7 +37,7 @@ public:
 	/// <summary>
 	/// return first in element, if queue is empty waits till element is enqueued
 	/// </summary>
-	T& dequeue()
+	T dequeue()
 	{
 		std::unique_lock<std::mutex> locker(m);
 		while (items.empty() && !adding_completed) {
@@ -48,7 +48,7 @@ public:
 			item = items.front();
 			items.pop();
 		}
-		return item;
+		return std::move(item);
 	}
 	
 	/// <summary>
