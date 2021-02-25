@@ -1,5 +1,4 @@
 #pragma once
-#define DllExport   __declspec( dllexport )
 
 #include <mutex>
 #include <condition_variable>
@@ -7,7 +6,7 @@
 /// <summary>
 /// base class for a job that can be proccessed by the thread pool
 /// </summary>
-class DllExport IJob {
+class IJob {
 
 private:
 	bool completed = false;

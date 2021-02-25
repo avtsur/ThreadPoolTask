@@ -3,8 +3,9 @@
 
 #include <iostream>
 
-#include "..\ThreadPool\IJob.h"
-#include "..\ThreadPool\ThreadPool.h"
+#include "BlockingQueue.h"
+#include "IJob.h"
+#include "ThreadPool.h"
 #include "IsPrimeCalcRangeJob.h"
 
 using namespace std;
