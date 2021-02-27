@@ -3,6 +3,10 @@
 
 ThreadPool::ThreadPool(int numOfThreads)
 {
+	if (numOfThreads <= 0) 
+	{
+		throw std::invalid_argument("num of threads must be positive integer");
+	}
 	for (int i = 0; i < numOfThreads; i++)
 	{
 		std::thread t(&ThreadPool::consume, this);
@@ -23,7 +27,7 @@ void ThreadPool::consume()
 			break;
 		}
 		auto job = jobs.dequeue();
-		if (job != nullptr) {
+		if (!jobsCompleted) {
 			job->calculate();
 		}
 	}

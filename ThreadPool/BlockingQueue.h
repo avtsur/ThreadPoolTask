@@ -22,7 +22,7 @@ public:
 	/// </summary>
 	void enqueue(const T& item)
 	{
-	
+
 		{
 			std::lock_guard<std::mutex> locker(m);
 			if (adding_completed)
@@ -43,14 +43,14 @@ public:
 		while (items.empty() && !adding_completed) {
 			cv.wait(locker);
 		}
-		T item = nullptr;
+		T item;
 		if (!items.empty()) {
 			item = items.front();
 			items.pop();
 		}
 		return std::move(item);
 	}
-	
+
 	/// <summary>
 	/// raise adding completed and release waiting threads
 	/// </summary>
@@ -61,14 +61,6 @@ public:
 			adding_completed = true;
 		}
 		cv.notify_all();
-	}
-
-	/// <summary>
-	/// return number of elements in the queue
-	/// </summary>
-	int get_items_number() const {
-		std::lock_guard<std::mutex> locker(m);
-		return items.size();
 	}
 };
 

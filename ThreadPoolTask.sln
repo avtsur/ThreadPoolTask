@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadPool", "ThreadPool\ThreadPool.vcxproj", "{3D559FE1-B932-48DF-B3ED-C4D5BC072FB2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimeNumberCalculator", "PrimeNumberCalculator\PrimeNumberCalculator.vcxproj", "{615C0A5E-1817-4DBF-86B5-0E22210D4125}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimeNumbersCalculator", "PrimeNumberCalculator\PrimeNumberCalculator.vcxproj", "{615C0A5E-1817-4DBF-86B5-0E22210D4125}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTestThreadPool", "UnitTestThreadPool\UnitTestThreadPool.vcxproj", "{BB507A8D-4B85-4947-AEF3-6E19C98F310D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{615C0A5E-1817-4DBF-86B5-0E22210D4125}.Release|x64.Build.0 = Release|x64
 		{615C0A5E-1817-4DBF-86B5-0E22210D4125}.Release|x86.ActiveCfg = Release|Win32
 		{615C0A5E-1817-4DBF-86B5-0E22210D4125}.Release|x86.Build.0 = Release|Win32
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Debug|x64.ActiveCfg = Debug|x64
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Debug|x64.Build.0 = Debug|x64
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Debug|x86.ActiveCfg = Debug|Win32
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Debug|x86.Build.0 = Debug|Win32
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Release|x64.ActiveCfg = Release|x64
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Release|x64.Build.0 = Release|x64
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Release|x86.ActiveCfg = Release|Win32
+		{BB507A8D-4B85-4947-AEF3-6E19C98F310D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
