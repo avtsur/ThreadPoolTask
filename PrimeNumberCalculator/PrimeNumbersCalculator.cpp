@@ -30,7 +30,7 @@ int CalcNumOfPrimeInRange(int numOfThreads, int low, int high)
 
 	for (; i <= high; i += rangeSingleJob)
 	{
-		int current_range_high = std::min(i + rangeSingleJob - 1, high);
+		int current_range_high = i + rangeSingleJob - 1 < high ? i + rangeSingleJob - 1 : high;//std::min(i + rangeSingleJob - 1, high);
 		auto job_ptr = std::make_shared<IsPrimeCalcRangeJob>(i, current_range_high);
 		threadPool.add_job(job_ptr.get());
 		primeJobs[(i - low) / rangeSingleJob] = job_ptr;

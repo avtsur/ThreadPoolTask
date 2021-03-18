@@ -22,7 +22,6 @@ public:
 	/// </summary>
 	void enqueue(const T& item)
 	{
-
 		{
 			std::lock_guard<std::mutex> locker(m);
 			if (adding_completed)
@@ -44,7 +43,7 @@ public:
 			cv.wait(locker);
 		}
 		T item;
-		if (!items.empty()) {
+		if (!adding_completed && !items.empty()) {
 			item = items.front();
 			items.pop();
 		}
