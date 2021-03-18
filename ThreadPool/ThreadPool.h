@@ -12,6 +12,9 @@ class ThreadPool
 {
 private:
 	bool jobsCompleted = false;
+	/// <summary>
+	/// all thread pool handles
+	/// </summary>
 	vector<HANDLE> threadsHandles;
 
 	BlockingQueue<IJob*> jobs;
