@@ -6,7 +6,7 @@ ThreadPool::ThreadPool(int numOfThreads)
 {
 	if (numOfThreads <= 0)
 	{
-		throw std::invalid_argument("num of threads must be positive integer");
+		throw std::invalid_argument("number of threads must be positive integer");
 	}
 	for (int i = 0; i < numOfThreads; i++)
 	{
